@@ -16,7 +16,7 @@ public class Ordenamientos {
      * Ordena listas desordenadas
      * @param lista desordenada 
      */
-    public static void insertionSort(int[] lista) {
+    /**public static void insertionSort(int[] lista) {
         int n = lista.length;  // Obtiene la longitud del arreglo
 
         // Recorre el arreglo desde el segundo elemento hasta el final
@@ -32,6 +32,26 @@ public class Ordenamientos {
 
             // Inserta 'num' en su posición correcta dentro de la parte ordenada
             lista[j + 1] = num;
+        }
+     * @param arr}**/
+    
+    /**
+     * Ordena un arreglo usando Selection Sort
+     * @param arr 
+     */
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i; // Encuentra el índice del menor elemento
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            // Intercambio de elementos
+            int valorTemporal = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = valorTemporal;
         }
     }
 
