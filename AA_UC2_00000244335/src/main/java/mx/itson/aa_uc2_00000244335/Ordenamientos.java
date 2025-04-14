@@ -39,7 +39,7 @@ public class Ordenamientos {
      * Ordena un arreglo usando Selection Sort
      * @param arr 
      */
-    public static void selectionSort(int[] arr) {
+    /**public static void selectionSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i; // Encuentra el índice del menor elemento
@@ -53,6 +53,30 @@ public class Ordenamientos {
             arr[minIndex] = arr[i];
             arr[i] = valorTemporal;
         }
+    }**/
+     public static void quicksort(int[] arr, int inicio, int fin) {
+        if (inicio < fin) {
+            int pivote = arr[fin]; // Elegimos el último elemento como pivote
+            int i = inicio - 1;    // i marca la posición para intercambios
+            // Recorremos el arreglo de inicio a fin-1
+            for (int j = inicio; j < fin; j++) {
+                if (arr[j] <= pivote) {
+                    i++;
+                    // Intercambiamos arr[i] con arr[j]
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+            // Colocamos el pivote en su posición correcta
+            int temp = arr[i + 1];
+            arr[i + 1] = arr[fin];
+            arr[fin] = temp;
+            
+            int indicePivote = i + 1; // Ahora el pivote está en su lugar
+            // Llamamos recursivamente al lado izquierdo y derecho del pivote
+            quicksort(arr, inicio, indicePivote - 1);
+            quicksort(arr, indicePivote + 1, fin);
+        }
     }
-
 }
